@@ -3,14 +3,14 @@ using UnityEngine;
 public class Gun : MonoBehaviour, IGun
 {
     
-    public GameObject BulletPrefab => throw new System.NotImplementedException();
+    public GameObject BulletPrefab => _bulletPrefab;
     [SerializeField] private GameObject _bulletPrefab;
 
-    public int MaxBullet => throw new System.NotImplementedException();
-    [SerializeField] private int _maxBullet;
+    public int MaxBullet => _maxBullet;
+    private int _maxBullet = 20;
 
-    public int Damage => throw new System.NotImplementedException();
-    [SerializeField] private int _damage;
+    public int Damage => _damage;
+    private int _damage = 10;
 
     [SerializeField] protected int _bulletCount;
 
@@ -25,9 +25,4 @@ public class Gun : MonoBehaviour, IGun
         Reload();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

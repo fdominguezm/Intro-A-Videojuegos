@@ -10,9 +10,9 @@ public class CharacterInputManager : MonoBehaviour
     [SerializeField] private KeyCode _moveDown = KeyCode.S;
     [SerializeField] private KeyCode _moveLeft = KeyCode.A;
     [SerializeField] private KeyCode _moveRight = KeyCode.D;
-    [SerializeField] private KeyCode _pistol = KeyCode.Alpha1;
-    [SerializeField] private KeyCode _shotgun = KeyCode.Alpha2;
-    [SerializeField] private KeyCode _rifle = KeyCode.Alpha3;
+    [SerializeField] private KeyCode _pistol = KeyCode.F1;
+    [SerializeField] private KeyCode _shotgun = KeyCode.F2;
+    [SerializeField] private KeyCode _rifle = KeyCode.F3;
     [SerializeField] private KeyCode _attack = KeyCode.Space;
     [SerializeField] private KeyCode _reload = KeyCode.R;
     
