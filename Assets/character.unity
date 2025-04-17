@@ -150,7 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _bulletCount: 0
+  _maxBullet: 8
+  _damage: 10
+  _cooldownTime: 0.5
 --- !u!212 &37168407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -383,8 +385,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _bulletCount: 0
-  _bulletsPerShot: 8
+  _maxBullet: 8
+  _damage: 10
+  _cooldownTime: 1
+  _bulletsPerShot: 5
 --- !u!212 &1269069597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -486,8 +490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _bulletCount: 0
-  _bulletsPerShot: 5
+  _maxBullet: 50
+  _damage: 10
+  _cooldownTime: 0.05
 --- !u!212 &1377024789
 SpriteRenderer:
   m_ObjectHideFlags: 0

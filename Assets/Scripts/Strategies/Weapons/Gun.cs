@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour, IGun
 {
-    
+
     public GameObject BulletPrefab => _bulletPrefab;
     [SerializeField] private GameObject _bulletPrefab;
 
     public int MaxBullet => _maxBullet;
-    private int _maxBullet = 20;
+    [SerializeField] private int _maxBullet = 20;
 
     public int Damage => _damage;
-    private int _damage = 10;
+    [SerializeField] private int _damage = 10;
 
-    [SerializeField] protected int _bulletCount;
+    public float CooldowndTime => _cooldownTime;
+    [SerializeField] private float _cooldownTime = 10f;
+
+    private float _cooldown;
+    protected bool _isCoolingDown;
+    protected int _bulletCount;
 
     public virtual void Attack() => Debug.Log("Parent attack");
-    
+
 
     public void Reload() => _bulletCount = _maxBullet;
 
@@ -23,6 +28,21 @@ public class Gun : MonoBehaviour, IGun
     void Start()
     {
         Reload();
+        _cooldown = _cooldownTime;
+        _isCoolingDown = false;
+    }
+
+    void Update()
+    {
+        if (_cooldown < 0)
+        {
+            _cooldown = _cooldownTime;
+            _isCoolingDown = false;
+        }
+        else if (_isCoolingDown)
+        {
+            _cooldown -= Time.deltaTime;
+        }
     }
 
 }

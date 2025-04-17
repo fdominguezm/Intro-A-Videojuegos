@@ -6,7 +6,9 @@ public class Shotgun : Gun
 
     public override void Attack()
     {
-        if (_bulletCount > 0) {
+        if (_bulletCount > 0 && !_isCoolingDown)
+        {
+            _isCoolingDown = true;
             for (int i = 0; i < _bulletsPerShot; i++)
             {
                 Vector2 offset = Random.insideUnitCircle * 1.5f;
