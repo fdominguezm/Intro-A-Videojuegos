@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 470629366}
   - component: {fileID: 470629365}
   - component: {fileID: 470629364}
+  - component: {fileID: 470629368}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -280,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd8da2c7e213479ba0459d8a1bc5d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 3
 --- !u!212 &470629366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -354,6 +355,18 @@ Transform:
   - {fileID: 1377024790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &470629368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470629363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1214816096c46efa90b01a72feb6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1269069595
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _maxBullet: 50
+  _maxBullet: 2000
   _damage: 10
   _cooldownTime: 0.05
 --- !u!212 &1377024789
