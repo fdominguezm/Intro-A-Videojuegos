@@ -14,7 +14,8 @@ public class Shotgun : Gun
                 Vector2 offset = Random.insideUnitCircle * 1.5f;
                 Vector3 spawnPos = transform.position + new Vector3(offset.x, offset.y, 0f);
 
-                Instantiate(BulletPrefab, spawnPos, transform.rotation);
+                GameObject bullet = Instantiate(BulletPrefab, spawnPos, transform.rotation, _bulletsParent);
+                bullet.GetComponent<NormalBulletStrategy>().SetOwner(this);
             }
             _bulletCount--;
         }

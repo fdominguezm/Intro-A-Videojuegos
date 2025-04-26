@@ -7,7 +7,8 @@ public class Pistol : Gun
         if (_bulletCount > 0 && !_isCoolingDown)
         {
             _isCoolingDown = true;
-            Instantiate(BulletPrefab, transform.position, transform.rotation);
+            GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation, _bulletsParent);
+            bullet.GetComponent<NormalBulletStrategy>().SetOwner(this);
             _bulletCount--;
         }
     }

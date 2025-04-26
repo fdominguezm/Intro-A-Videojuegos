@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour, IGun
     private float _cooldown;
     protected bool _isCoolingDown;
     protected int _bulletCount;
+    [SerializeField] protected Transform _bulletsParent;
 
     public virtual void Attack() => Debug.Log("Parent attack");
 

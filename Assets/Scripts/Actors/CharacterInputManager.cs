@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum WeaponIndex
+{
+    pistol = 0,
+    shotgun = 1,
+    rifle = 2
+}
+
 public class CharacterInputManager : MonoBehaviour
 {
     private WalkStrategy _walkStrategy;
@@ -22,6 +29,8 @@ public class CharacterInputManager : MonoBehaviour
     {
         _walkStrategy = GetComponent<WalkStrategy>();
         _turnStrategy = GetComponent<TurnStrategy>();
+
+        SwitchWeapon((int) WeaponIndex.pistol);
     }
 
     private void Update()
@@ -42,9 +51,9 @@ public class CharacterInputManager : MonoBehaviour
 
         if (Input.GetKey(_attack)) _gun.Attack();
         if (Input.GetKey(_reload)) _gun.Reload();
-        if (Input.GetKey(_pistol)) SwitchWeapon(0);
-        if (Input.GetKey(_shotgun)) SwitchWeapon(1);
-        if (Input.GetKey(_rifle)) SwitchWeapon(2);
+        if (Input.GetKey(_pistol)) SwitchWeapon((int) WeaponIndex.pistol);
+        if (Input.GetKey(_shotgun)) SwitchWeapon((int) WeaponIndex.shotgun);
+        if (Input.GetKey(_rifle)) SwitchWeapon((int) WeaponIndex.rifle);
 
     }
 
