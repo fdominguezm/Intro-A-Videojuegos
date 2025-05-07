@@ -24,8 +24,14 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     public void Die()
     {
         Debug.Log($"Object {name} has died!!!");
-
+        if (gameObject.tag.Equals("Player")) {
+            EventManager.instance.EventGameOver(false);
+        }
+        else {
+            EventManager.instance.EventGameOver(true);
+        }
         Destroy(gameObject);
+
     }
 
     public void Start()

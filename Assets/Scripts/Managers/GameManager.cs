@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _isGameOver = false;
     [SerializeField] private bool _isVictory = false;
-    [SerializeField] private Text _gameoverMessage;
 
     private void Start()
     {
         EventManager.instance.OnGameOver += OnGameOver;
-        _gameoverMessage.text = string.Empty;
     }
 
     private void OnGameOver(bool isVictory)
@@ -20,7 +19,7 @@ public class GameManager : MonoBehaviour
         _isGameOver = true;
         _isVictory = isVictory;
 
-        _gameoverMessage.text = isVictory ? "Victoria" : "Derrota";
-        _gameoverMessage.color = isVictory ? Color.cyan : Color.red;
+        string debugMessage = isVictory ? "Victoria" : "Derrota";
+        Debug.Log(debugMessage);
     }
 }

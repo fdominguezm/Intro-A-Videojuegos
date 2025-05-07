@@ -55,9 +55,9 @@ public class CharacterInputManager : MonoBehaviour
         if (Input.GetKey(_shotgun)) SwitchWeapon((int) WeaponIndex.shotgun);
         if (Input.GetKey(_rifle)) SwitchWeapon((int) WeaponIndex.rifle);
 
-        if (Input.GetKeyDown(KeyCode.Escape)) EventManager.instance.EventGameOver(true);
+        // if (Input.GetKeyDown(KeyCode.Escape)) EventManager.instance.EventGameOver(true);
         
-        if (Input.GetKeyDown(KeyCode.E)) EventManager.instance.EventGameOver(false);
+        // if (Input.GetKeyDown(KeyCode.E)) EventManager.instance.EventGameOver(false);
         
     }
 
