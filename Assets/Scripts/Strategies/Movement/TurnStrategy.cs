@@ -1,18 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Actor))]
-
-public class TurnStrategy : MonoBehaviour, IMovable
+public class TurnStrategy : MonoBehaviour, IRotatable
 {
     public float Speed => GetComponent<Actor>().ActorStats.Turn;
 
-    public void Move(Vector3 direction)
+    public void FaceDirection(Vector2 direction)
     {
-        throw new System.NotImplementedException();
-    }
-    public void FaceDirection(Vector3 direction)
-    {
-        if (direction != Vector3.zero)
+        if (direction != Vector2.zero)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,18 +11,22 @@ enum WeaponIndex
 
 public class CharacterInputManager : MonoBehaviour
 {
-    private WalkStrategy _walkStrategy;
-    private TurnStrategy _turnStrategy;
+    private IMovable _walkStrategy;
+    private IRotatable _turnStrategy;
 
     [SerializeField] private List<Gun> _gunList;
     [SerializeField] private Gun _gun;
+
+    [Header("Key Bindings - Movements")]
     [SerializeField] private KeyCode _moveUp = KeyCode.W;
     [SerializeField] private KeyCode _moveDown = KeyCode.S;
     [SerializeField] private KeyCode _moveLeft = KeyCode.A;
     [SerializeField] private KeyCode _moveRight = KeyCode.D;
-    [SerializeField] private KeyCode _pistol = KeyCode.F1;
-    [SerializeField] private KeyCode _shotgun = KeyCode.F2;
-    [SerializeField] private KeyCode _rifle = KeyCode.F3;
+
+    [Header("Key Bindings - Attack")]
+    [SerializeField] private KeyCode _pistol = KeyCode.Alpha1;
+    [SerializeField] private KeyCode _shotgun = KeyCode.Alpha2;
+    [SerializeField] private KeyCode _rifle = KeyCode.Alpha3;
     [SerializeField] private KeyCode _attack = KeyCode.Space;
     [SerializeField] private KeyCode _reload = KeyCode.R;
 
@@ -30,35 +35,36 @@ public class CharacterInputManager : MonoBehaviour
         _walkStrategy = GetComponent<WalkStrategy>();
         _turnStrategy = GetComponent<TurnStrategy>();
 
-        SwitchWeapon((int) WeaponIndex.pistol);
+        SwitchWeapon((int)WeaponIndex.pistol);
+    }
+
+    private Vector2 GetInputDirection()
+    {
+        Vector2 direction = Vector2.zero;
+
+        if (Input.GetKey(_moveUp)) direction += Vector2.up;
+        if (Input.GetKey(_moveDown)) direction += Vector2.down;
+        if (Input.GetKey(_moveLeft)) direction += Vector2.left;
+        if (Input.GetKey(_moveRight)) direction += Vector2.right;
+
+        return direction;
     }
 
     private void Update()
     {
-        Vector3 moveDirection = Vector3.zero;
-
-        if (Input.GetKey(_moveUp)) moveDirection += Vector3.up;
-        if (Input.GetKey(_moveDown)) moveDirection += Vector3.down;
-        if (Input.GetKey(_moveLeft)) moveDirection += Vector3.left;
-        if (Input.GetKey(_moveRight)) moveDirection += Vector3.right;
-
-        if (moveDirection != Vector3.zero)
+        Vector2 direction = GetInputDirection();
+        if (direction != Vector2.zero)
         {
-            moveDirection.Normalize(); // Ensures speed is consistent in diagonals
-            _walkStrategy.Move(moveDirection);
-            _turnStrategy.FaceDirection(moveDirection);
+            ICommand command = new MovementCommand(_walkStrategy, _turnStrategy, direction);
+            command.Execute();
         }
 
         if (Input.GetKey(_attack)) _gun.Attack();
         if (Input.GetKey(_reload)) _gun.Reload();
-        if (Input.GetKey(_pistol)) SwitchWeapon((int) WeaponIndex.pistol);
-        if (Input.GetKey(_shotgun)) SwitchWeapon((int) WeaponIndex.shotgun);
-        if (Input.GetKey(_rifle)) SwitchWeapon((int) WeaponIndex.rifle);
+        if (Input.GetKey(_pistol)) SwitchWeapon((int)WeaponIndex.pistol);
+        if (Input.GetKey(_shotgun)) SwitchWeapon((int)WeaponIndex.shotgun);
+        if (Input.GetKey(_rifle)) SwitchWeapon((int)WeaponIndex.rifle);
 
-        // if (Input.GetKeyDown(KeyCode.Escape)) EventManager.instance.EventGameOver(true);
-        
-        // if (Input.GetKeyDown(KeyCode.E)) EventManager.instance.EventGameOver(false);
-        
     }
 
     private void SwitchWeapon(int weaponIndex)

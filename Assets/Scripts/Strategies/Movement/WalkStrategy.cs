@@ -6,9 +6,8 @@ public class WalkStrategy : MonoBehaviour, IMovable
     public float Speed => GetComponent<Actor>().ActorStats.Speed;
 
 
-    public void Move(Vector3 direction)
+    public void Move(Vector2 direction)
     {
-        transform.position += direction * Time.deltaTime * Speed;
+        transform.position += (Vector3)(direction.normalized * Speed * Time.deltaTime);
     }
-
 }

@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     private void OnGameOver(bool isVictory)
     {
         _gameOverText.text = isVictory ? "Victoria" : "Derrota";
-        Debug.Log("hola");
         _gameOverText.color = isVictory ? Color.cyan : Color.red;
         _gameOverImage.enabled = true;
         _gameOverImage.sprite = isVictory ? _victorySprite : _defeatSprite;
