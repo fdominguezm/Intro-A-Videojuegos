@@ -1,12 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Actor))]
+
 public class NormalLifeStrategy : MonoBehaviour, IDamageable
 {
     public int CurrentLife => _currentLife;
     [SerializeField] private int _currentLife;
 
-    public int MaxLife => _maxLife;
-    [SerializeField] private int _maxLife;
+    public int MaxLife => GetComponent<Actor>().ActorStats.MaxLife;
 
     public void ApplyDamage(int damage)
     {

@@ -1,10 +1,10 @@
 using UnityEngine;
 
-
+[RequireComponent(typeof(Actor))]
 public class WalkStrategy : MonoBehaviour, IMovable
 {
-    public float Speed => _speed;
-    [SerializeField] private float _speed = 10f;
+    public float Speed => GetComponent<Actor>().ActorStats.Speed;
+
 
     public void Move(Vector3 direction)
     {

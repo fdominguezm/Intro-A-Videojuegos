@@ -3,17 +3,14 @@ using UnityEngine;
 public class Gun : MonoBehaviour, IGun
 {
 
-    public GameObject BulletPrefab => _bulletPrefab;
-    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] protected GunStats _gunStats;
+    public GameObject BulletPrefab => _gunStats.BulletPrefab;
 
-    public int MaxBullet => _maxBullet;
-    [SerializeField] private int _maxBullet = 20;
+    public int MaxBullet => _gunStats.MaxBullet;
 
-    public int Damage => _damage;
-    [SerializeField] private int _damage = 10;
+    public int Damage => _gunStats.Damage;
 
-    public float CooldowndTime => _cooldownTime;
-    [SerializeField] private float _cooldownTime = 10f;
+    public float CooldownTime => _gunStats.CooldownTime;
 
     private float _cooldown;
     protected bool _isCoolingDown;
@@ -23,13 +20,13 @@ public class Gun : MonoBehaviour, IGun
     public virtual void Attack() => Debug.Log("Parent attack");
 
 
-    public void Reload() => _bulletCount = _maxBullet;
+    public void Reload() => _bulletCount = MaxBullet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Reload();
-        _cooldown = _cooldownTime;
+        _cooldown = CooldownTime;
         _isCoolingDown = false;
     }
 
@@ -37,7 +34,7 @@ public class Gun : MonoBehaviour, IGun
     {
         if (_cooldown < 0)
         {
-            _cooldown = _cooldownTime;
+            _cooldown = CooldownTime;
             _isCoolingDown = false;
         }
         else if (_isCoolingDown)

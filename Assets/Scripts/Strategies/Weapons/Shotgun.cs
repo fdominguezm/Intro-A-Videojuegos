@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Shotgun : Gun
 {
-    [SerializeField] private int _bulletsPerShot = 8;
+    [SerializeField] private int _bulletsPerShot => _gunStats.BulletsPerShot;
 
     public override void Attack()
     {

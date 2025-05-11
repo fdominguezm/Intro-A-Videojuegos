@@ -2,14 +2,15 @@ using System.Buffers;
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Actor))]
 public class ZombieWalk : MonoBehaviour
 {
     public Transform target; 
-    public float speed = 2f;
+    public float Speed => GetComponent<Actor>().ActorStats.Speed;
 
-    public int damage = 10;
+    public int Damage => GetComponent<Actor>().ActorStats.Damage;
 
-    private float knockbackForce = 500f; 
+    private float KnockbackForce => GetComponent<Actor>().ActorStats.KnockbackForce;
 
 
     void Update()
@@ -17,7 +18,7 @@ public class ZombieWalk : MonoBehaviour
         if (target != null)
         {
             Vector3 direction = (target.position - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * Speed * Time.deltaTime;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -48,12 +49,12 @@ public class ZombieWalk : MonoBehaviour
 
                 if (damageable != null)
                 {
-                    damageable.ApplyDamage(damage);
+                    damageable.ApplyDamage(Damage);
                 }
                 if (rb != null)
                 {
                     Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                    rb.AddForce(knockbackDirection * knockbackForce);
+                    rb.AddForce(knockbackDirection * KnockbackForce);
                     StartCoroutine(StopKnockback(rb, 0.1f));
 
                 }
