@@ -149,10 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347d1348ca60a4d07b25c0de4157d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _maxBullet: 8
-  _damage: 10
-  _cooldownTime: 0.5
+  _gunStats: {fileID: 11400000, guid: fcaf28057c99b47b5b058548c8966258, type: 2}
   _bulletsParent: {fileID: 1336036985}
 --- !u!212 &37168407
 SpriteRenderer:
@@ -933,12 +930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d269eeed0324003b243ae1f2442313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _maxBullet: 8
-  _damage: 10
-  _cooldownTime: 1
+  _gunStats: {fileID: 11400000, guid: a6d449b7bf1c348d8aa79374691faa0c, type: 2}
   _bulletsParent: {fileID: 1336036985}
-  _bulletsPerShot: 5
 --- !u!212 &1269069597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1070,10 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1530205d584c944808b8d85ffa323e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 3334121244318731713, guid: 22a9e346e90f03327bb4a2dd5852fb13, type: 3}
-  _maxBullet: 50
-  _damage: 10
-  _cooldownTime: 0.05
+  _gunStats: {fileID: 11400000, guid: 90f5a97b12e824334ba7c5e35b15e2e6, type: 2}
   _bulletsParent: {fileID: 1336036985}
 --- !u!212 &1377024789
 SpriteRenderer:
