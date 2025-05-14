@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SwitchWeaponCommand : ICommand
+public class SwitchWeaponCmd : ICommand
 {
     private List<Gun> _gunList;
     private int _weaponIndex;
     private Action<Gun> _onWeaponSwitched;
 
-    public SwitchWeaponCommand(List<Gun> gunList, int weaponIndex, Action<Gun> onWeaponSwitched)
+    public SwitchWeaponCmd(List<Gun> gunList, int weaponIndex, Action<Gun> onWeaponSwitched)
     {
         _gunList = gunList;
         _weaponIndex = weaponIndex;

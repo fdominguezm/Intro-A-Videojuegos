@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Actor))]
 public class ZombieWalk : MonoBehaviour
 {
-    public Transform target; 
+    public Transform target;
     public float Speed => GetComponent<Actor>().ActorStats.Speed;
 
     public int Damage => GetComponent<Actor>().ActorStats.Damage;
@@ -34,30 +34,24 @@ public class ZombieWalk : MonoBehaviour
         }
     }
 
-    private IEnumerator StopKnockback(Rigidbody2D rb, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        rb.linearVelocity = Vector2.zero;
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Character"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-                IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            CharacterInputManager inputManager = collision.gameObject.GetComponent<CharacterInputManager>();
 
-                if (damageable != null)
-                {
-                    EventQueueManager.Instance.AddCommand(new ApplyDamageCmd(damageable, Damage));
-                }
-                if (rb != null)
-                {
-                    Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                    rb.AddForce(knockbackDirection * KnockbackForce);
-                    StartCoroutine(StopKnockback(rb, 0.1f));
+            if (damageable != null)
+                EventQueueManager.Instance.AddCommand(new ApplyDamageCmd(damageable, Damage));
 
-                }
+            if (rb != null && inputManager != null)
+            {
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                ICommand knockbackCmd = new KnockbackCmd(rb, knockbackDir * KnockbackForce, 0.2f, inputManager);
+                EventQueueManager.Instance.AddCommand(knockbackCmd);
+            }
         }
     }
+
 }

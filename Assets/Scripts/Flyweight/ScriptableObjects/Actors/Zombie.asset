@@ -16,5 +16,5 @@ MonoBehaviour:
     MaxLife: 20
     Speed: 2
     Turn: 0
-    KnockbackForce: 100
+    KnockbackForce: 10
     Damage: 10

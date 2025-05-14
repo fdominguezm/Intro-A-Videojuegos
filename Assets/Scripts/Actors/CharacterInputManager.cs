@@ -34,6 +34,9 @@ public class CharacterInputManager : MonoBehaviour
     private AttackCmd _attackCmd;
     private ReloadCmd _reloadCmd;
 
+    private bool _isKnockedBack = false;
+    public bool IsKnockedBack => _isKnockedBack;
+
     private void Start()
     {
         _walkStrategy = GetComponent<WalkStrategy>();
@@ -56,10 +59,13 @@ public class CharacterInputManager : MonoBehaviour
 
     private void Update()
     {
-        Vector2 direction = GetInputDirection();
-        if (direction != Vector2.zero)
+        if (!_isKnockedBack)
         {
-            EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, direction));
+            Vector2 direction = GetInputDirection();
+            if (direction != Vector2.zero)
+            {
+                EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, direction));
+            }
         }
 
         if (Input.GetKey(_attack)) EventQueueManager.Instance.AddCommand(_attackCmd);
@@ -73,7 +79,7 @@ public class CharacterInputManager : MonoBehaviour
 
     private void QueueWeaponSwitch(int index)
     {
-        var switchCmd = new SwitchWeaponCommand(_gunList, index, OnWeaponSwitched);
+        var switchCmd = new SwitchWeaponCmd(_gunList, index, OnWeaponSwitched);
         EventQueueManager.Instance.AddCommand(switchCmd);
     }
 
@@ -83,6 +89,12 @@ public class CharacterInputManager : MonoBehaviour
         _attackCmd = new AttackCmd(_gun);
         _reloadCmd = new ReloadCmd(_gun);
     }
+
+    public void SetKnockbackState(bool value)
+    {
+        _isKnockedBack = value;
+    }
+
 
     // private void SwitchWeapon(int weaponIndex)
     // {
