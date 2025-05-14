@@ -11,8 +11,8 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
 
     public void ApplyDamage(int damage)
     {
-        Debug.Log("Applying Damage");
         _currentLife -= damage;
+        if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
         if (_currentLife <= 0) Die();
     }
 
@@ -20,15 +20,18 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     {
         _currentLife += amount;
         if (_currentLife > MaxLife) _currentLife = MaxLife;
+        if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
     }
 
     public void Die()
     {
         Debug.Log($"Object {name} has died!!!");
-        if (gameObject.tag.Equals("Player")) {
+        if (gameObject.tag.Equals("Player"))
+        {
             EventManager.instance.EventGameOver(false);
         }
-        else if (gameObject.name.Equals("Zombie")){
+        else if (gameObject.name.Equals("Zombie"))
+        {
             EventManager.instance.EventGameOver(true);
         }
         Destroy(gameObject);
@@ -38,5 +41,6 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     public void Start()
     {
         _currentLife = MaxLife;
+        EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
     }
 }

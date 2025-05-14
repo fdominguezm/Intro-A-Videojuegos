@@ -64,7 +64,6 @@ public class CharacterInputManager : MonoBehaviour
             Vector2 direction = GetInputDirection();
             if (direction != Vector2.zero)
             {
-                
                 EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, direction));
             }
         }
@@ -87,6 +86,8 @@ public class CharacterInputManager : MonoBehaviour
     private void OnWeaponSwitched(Gun gun)
     {
         _gun = gun;
+        EventManager.instance.Event_WeaponChange(gun.name);
+        EventManager.instance.Event_GunAmmoChange(gun.BulletCount);
         _attackCmd = new AttackCmd(_gun);
         _reloadCmd = new ReloadCmd(_gun);
     }
@@ -96,18 +97,4 @@ public class CharacterInputManager : MonoBehaviour
         _isKnockedBack = value;
     }
 
-
-    // private void SwitchWeapon(int weaponIndex)
-    // {
-    //     foreach (Gun gun in _gunList)
-    //     {
-    //         gun.gameObject.SetActive(false);
-    //     }
-
-    //     _gun = _gunList[weaponIndex];
-    //     _gun.gameObject.SetActive(true);
-
-    //     _attackCmd = new AttackCmd(_gun);
-    //     _reloadCmd = new ReloadCmd(_gun);
-    // }
 }

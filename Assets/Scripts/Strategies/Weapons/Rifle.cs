@@ -10,6 +10,7 @@ public class Rifle : Gun
             GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation, _bulletsParent);
             bullet.GetComponent<NormalBulletStrategy>().SetOwner(this);
             _bulletCount--;
+            base.Attack();
         }
     }
 }

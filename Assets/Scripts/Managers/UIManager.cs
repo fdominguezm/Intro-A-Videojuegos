@@ -6,25 +6,55 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("GAME OVER")]
     [SerializeField] private TMP_Text _gameOverText;
-    [SerializeField] private Image _gameOverImage;
-    [SerializeField] private Sprite _defeatSprite;
-    [SerializeField] private Sprite _victorySprite;
+
+    [Header("GUN")]
+    [SerializeField] private TMP_Text _gunText;
+    private int _ammo;
+    private string _weapon;
+
+
+    [Header("LIFE")]
+    [SerializeField] private TMP_Text _lifeText;
 
 
     private void Start()
     {
         EventManager.instance.OnGameOver += OnGameOver;
+        EventManager.instance.OnLifeChange += OnLifeChange;
+        EventManager.instance.OnGunAmmoChange += OnAmmoChange;
+        EventManager.instance.OnWeaponChange += OnWeaponChange;
         _gameOverText.text = string.Empty;
-        _gameOverImage.enabled = false;
+        _lifeText.text = string.Empty;
+        _gunText.text = string.Empty;
     }
 
     private void OnGameOver(bool isVictory)
     {
         _gameOverText.text = isVictory ? "Victoria" : "Derrota";
         _gameOverText.color = isVictory ? Color.cyan : Color.red;
-        _gameOverImage.enabled = true;
-        _gameOverImage.sprite = isVictory ? _victorySprite : _defeatSprite;
+    }
+
+    private void OnLifeChange(int life, int maxLife)
+    {
+        _lifeText.text = $"{life}/{maxLife}";
+    }
+
+    private void OnAmmoChange(int ammo)
+    {
+        _ammo = ammo;
+        UpdateGunText();
+    }
+
+    private void OnWeaponChange(string name)
+    {
+        _weapon = name;
+        UpdateGunText();
+    }
+    private void UpdateGunText()
+    {
+        _gunText.text = $"{_weapon}:{_ammo}";
     }
 
 }

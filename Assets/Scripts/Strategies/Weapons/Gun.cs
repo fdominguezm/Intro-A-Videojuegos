@@ -12,15 +12,21 @@ public class Gun : MonoBehaviour, IGun
 
     public float CooldownTime => _gunStats.CooldownTime;
 
+    public int BulletCount => _bulletCount;
+
     private float _cooldown;
     protected bool _isCoolingDown;
     protected int _bulletCount;
     [SerializeField] protected Transform _bulletsParent;
 
-    public virtual void Attack() => Debug.Log("Parent attack");
+    public virtual void Attack() => EventManager.instance.Event_GunAmmoChange(_bulletCount);
 
 
-    public void Reload() => _bulletCount = MaxBullet;
+    public void Reload()
+    {
+        _bulletCount = MaxBullet;
+        EventManager.instance.Event_GunAmmoChange(_bulletCount);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

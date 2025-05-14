@@ -18,6 +18,7 @@ public class Shotgun : Gun
                 bullet.GetComponent<NormalBulletStrategy>().SetOwner(this);
             }
             _bulletCount--;
+            base.Attack();
         }
     }
 }
