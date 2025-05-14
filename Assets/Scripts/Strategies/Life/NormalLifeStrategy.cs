@@ -28,7 +28,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
         if (gameObject.tag.Equals("Player")) {
             EventManager.instance.EventGameOver(false);
         }
-        else {
+        else if (gameObject.name.Equals("Zombie")){
             EventManager.instance.EventGameOver(true);
         }
         Destroy(gameObject);

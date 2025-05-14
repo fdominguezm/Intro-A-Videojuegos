@@ -49,7 +49,7 @@ public class ZombieWalk : MonoBehaviour
 
                 if (damageable != null)
                 {
-                    damageable.ApplyDamage(Damage);
+                    EventQueueManager.Instance.AddCommand(new ApplyDamageCmd(damageable, Damage));
                 }
                 if (rb != null)
                 {

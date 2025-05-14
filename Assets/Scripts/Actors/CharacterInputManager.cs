@@ -30,12 +30,16 @@ public class CharacterInputManager : MonoBehaviour
     [SerializeField] private KeyCode _attack = KeyCode.Space;
     [SerializeField] private KeyCode _reload = KeyCode.R;
 
+    // Command Properties - Weapons
+    private AttackCmd _attackCmd;
+    private ReloadCmd _reloadCmd;
+
     private void Start()
     {
         _walkStrategy = GetComponent<WalkStrategy>();
         _turnStrategy = GetComponent<TurnStrategy>();
 
-        SwitchWeapon((int)WeaponIndex.pistol);
+        QueueWeaponSwitch((int)WeaponIndex.pistol);
     }
 
     private Vector2 GetInputDirection()
@@ -55,26 +59,42 @@ public class CharacterInputManager : MonoBehaviour
         Vector2 direction = GetInputDirection();
         if (direction != Vector2.zero)
         {
-            ICommand command = new MovementCommand(_walkStrategy, _turnStrategy, direction);
-            command.Execute();
+            EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, direction));
         }
 
-        if (Input.GetKey(_attack)) _gun.Attack();
-        if (Input.GetKey(_reload)) _gun.Reload();
-        if (Input.GetKey(_pistol)) SwitchWeapon((int)WeaponIndex.pistol);
-        if (Input.GetKey(_shotgun)) SwitchWeapon((int)WeaponIndex.shotgun);
-        if (Input.GetKey(_rifle)) SwitchWeapon((int)WeaponIndex.rifle);
+        if (Input.GetKey(_attack)) EventQueueManager.Instance.AddCommand(_attackCmd);
+        if (Input.GetKey(_reload)) EventQueueManager.Instance.AddCommand(_reloadCmd);
+        if (Input.GetKeyDown(_pistol)) QueueWeaponSwitch((int)WeaponIndex.pistol);
+        if (Input.GetKeyDown(_shotgun)) QueueWeaponSwitch((int)WeaponIndex.shotgun);
+        if (Input.GetKeyDown(_rifle)) QueueWeaponSwitch((int)WeaponIndex.rifle);
+
 
     }
 
-    private void SwitchWeapon(int weaponIndex)
+    private void QueueWeaponSwitch(int index)
     {
-        foreach (Gun gun in _gunList)
-        {
-            gun.gameObject.SetActive(false);
-        }
-
-        _gun = _gunList[weaponIndex];
-        _gun.gameObject.SetActive(true);
+        var switchCmd = new SwitchWeaponCommand(_gunList, index, OnWeaponSwitched);
+        EventQueueManager.Instance.AddCommand(switchCmd);
     }
+
+    private void OnWeaponSwitched(Gun gun)
+    {
+        _gun = gun;
+        _attackCmd = new AttackCmd(_gun);
+        _reloadCmd = new ReloadCmd(_gun);
+    }
+
+    // private void SwitchWeapon(int weaponIndex)
+    // {
+    //     foreach (Gun gun in _gunList)
+    //     {
+    //         gun.gameObject.SetActive(false);
+    //     }
+
+    //     _gun = _gunList[weaponIndex];
+    //     _gun.gameObject.SetActive(true);
+
+    //     _attackCmd = new AttackCmd(_gun);
+    //     _reloadCmd = new ReloadCmd(_gun);
+    // }
 }
