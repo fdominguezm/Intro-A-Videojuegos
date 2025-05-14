@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   _actorStatsValues:
-    MaxLife: 20
+    MaxLife: 100
     Speed: 2
     Turn: 0
     KnockbackForce: 10

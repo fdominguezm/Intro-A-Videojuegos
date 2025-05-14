@@ -64,6 +64,7 @@ public class CharacterInputManager : MonoBehaviour
             Vector2 direction = GetInputDirection();
             if (direction != Vector2.zero)
             {
+                
                 EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, direction));
             }
         }

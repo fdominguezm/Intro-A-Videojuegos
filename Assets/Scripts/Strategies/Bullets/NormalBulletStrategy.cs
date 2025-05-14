@@ -13,7 +13,7 @@ public class NormalBulletStrategy : MonoBehaviour, IBullet
 
     public void Travel()
     {
-        transform.position += transform.up * Time.deltaTime * Speed;
+        transform.position += transform.right * Time.deltaTime * Speed;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

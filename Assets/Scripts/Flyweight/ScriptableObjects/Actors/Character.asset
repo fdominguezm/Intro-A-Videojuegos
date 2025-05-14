@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Character
   m_EditorClassIdentifier: 
   _actorStatsValues:
-    MaxLife: 100
-    Speed: 10
+    MaxLife: 150
+    Speed: 6
     Turn: 0
+    KnockbackForce: 0
+    Damage: 0
