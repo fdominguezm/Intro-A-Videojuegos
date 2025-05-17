@@ -7,6 +7,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     public AudioClip damageClip;
     public AudioSource audioSource;
     public int CurrentLife => _currentLife;
+    private bool dead;
     [SerializeField] private int _currentLife;
 
     public int MaxLife => GetComponent<Actor>().ActorStats.MaxLife;
@@ -16,7 +17,11 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
         _currentLife -= damage;
         if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
         if (damageClip != null) audioSource.PlayOneShot(damageClip);
-        if (_currentLife <= 0) Die();
+        if (_currentLife <= 0 && !dead)
+        {
+            dead = true;
+            Die();
+        }
     }
 
     public void RestoreLife(int amount)
@@ -46,5 +51,6 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
         audioSource = GetComponent<AudioSource>();
         _currentLife = MaxLife;
         EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
+        dead = false;
     }
 }
