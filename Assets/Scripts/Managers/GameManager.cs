@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -21,5 +22,15 @@ public class GameManager : MonoBehaviour
 
         string debugMessage = isVictory ? "Victoria" : "Derrota";
         Debug.Log(debugMessage);
+
+        if (isVictory)
+        {
+            SceneManager.LoadScene("EndVictory");
+        }
+        else
+        {
+            SceneManager.LoadScene("EndDefeat");
+        }
+
     }
 }

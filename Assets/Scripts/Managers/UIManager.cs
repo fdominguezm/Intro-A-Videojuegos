@@ -6,8 +6,6 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("GAME OVER")]
-    [SerializeField] private TMP_Text _gameOverText;
 
     [Header("GUN")]
     [SerializeField] private TMP_Text _gunText;
@@ -21,19 +19,11 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.instance.OnGameOver += OnGameOver;
         EventManager.instance.OnLifeChange += OnLifeChange;
         EventManager.instance.OnGunAmmoChange += OnAmmoChange;
         EventManager.instance.OnWeaponChange += OnWeaponChange;
-        _gameOverText.text = string.Empty;
         _lifeText.text = string.Empty;
         _gunText.text = string.Empty;
-    }
-
-    private void OnGameOver(bool isVictory)
-    {
-        _gameOverText.text = isVictory ? "Victoria" : "Derrota";
-        _gameOverText.color = isVictory ? Color.cyan : Color.red;
     }
 
     private void OnLifeChange(int life, int maxLife)
