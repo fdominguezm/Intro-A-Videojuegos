@@ -7,6 +7,8 @@ public class EventManager : MonoBehaviour
 {
     static public EventManager instance;
 
+
+
     #region UNITY_EVENTS
     private void Awake()
     {
@@ -17,10 +19,16 @@ public class EventManager : MonoBehaviour
 
     #region GAME_MANAGER
     public event Action<bool> OnGameOver;
+    public event Action KilledZombie;
 
     public void EventGameOver(bool isVictory)
     {
         if (OnGameOver != null) OnGameOver(isVictory);
+    }
+
+    public void EventZombieKilled()
+    {
+        if (KilledZombie != null) KilledZombie();
     }
     #endregion
 
