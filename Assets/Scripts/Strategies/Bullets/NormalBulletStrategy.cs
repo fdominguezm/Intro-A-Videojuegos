@@ -1,4 +1,4 @@
- using UnityEngine;
+using UnityEngine;
 
 public class NormalBulletStrategy : MonoBehaviour, IBullet
 {
@@ -20,10 +20,11 @@ public class NormalBulletStrategy : MonoBehaviour, IBullet
     {
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
 
-        if (!collision.gameObject.name.Equals("Character") && damageable != null) {
+        if (!collision.gameObject.name.Equals("Character") && damageable != null)
+        {
             EventQueueManager.Instance.AddCommand(new ApplyDamageCmd(damageable, Owner.Damage));
-            Destroy(gameObject);
-        }        
+        }
+        Destroy(gameObject);
     }
 
     public void SetOwner(Gun gun) => _owner = gun;
@@ -32,6 +33,6 @@ public class NormalBulletStrategy : MonoBehaviour, IBullet
     {
         Travel();
         _lifetime -= Time.deltaTime;
-        if(_lifetime <= 0) Destroy(gameObject);
+        if (_lifetime <= 0) Destroy(gameObject);
     }
 }
