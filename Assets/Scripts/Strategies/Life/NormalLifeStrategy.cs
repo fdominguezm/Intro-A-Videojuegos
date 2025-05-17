@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NormalLifeStrategy : MonoBehaviour, IDamageable
 {
+    public AudioClip damageClip;
+    public AudioSource audioSource;
     public int CurrentLife => _currentLife;
     [SerializeField] private int _currentLife;
 
@@ -13,6 +15,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     {
         _currentLife -= damage;
         if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
+        if (damageClip != null) audioSource.PlayOneShot(damageClip);
         if (_currentLife <= 0) Die();
     }
 
@@ -40,6 +43,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
 
     public void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         _currentLife = MaxLife;
         EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
     }

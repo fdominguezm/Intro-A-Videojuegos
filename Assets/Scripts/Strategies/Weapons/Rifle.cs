@@ -11,6 +11,10 @@ public class Rifle : Gun
             bullet.GetComponent<NormalBulletStrategy>().SetOwner(this);
             _bulletCount--;
             base.Attack();
+            if (shootClip != null)
+            {
+                audioSource.PlayOneShot(shootClip);
+            }
         }
     }
 }

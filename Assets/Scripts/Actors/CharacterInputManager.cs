@@ -69,7 +69,7 @@ public class CharacterInputManager : MonoBehaviour
         }
 
         if (Input.GetKey(_attack)) EventQueueManager.Instance.AddCommand(_attackCmd);
-        if (Input.GetKey(_reload)) EventQueueManager.Instance.AddCommand(_reloadCmd);
+        if (Input.GetKeyDown(_reload)) EventQueueManager.Instance.AddCommand(_reloadCmd);
         if (Input.GetKeyDown(_pistol)) QueueWeaponSwitch((int)WeaponIndex.pistol);
         if (Input.GetKeyDown(_shotgun)) QueueWeaponSwitch((int)WeaponIndex.shotgun);
         if (Input.GetKeyDown(_rifle)) QueueWeaponSwitch((int)WeaponIndex.rifle);

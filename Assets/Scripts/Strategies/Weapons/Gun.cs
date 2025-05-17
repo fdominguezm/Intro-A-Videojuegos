@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour, IGun
 {
-
+    public AudioClip shootClip;
+    public AudioClip reloadClip;
+    public AudioSource audioSource;
     [SerializeField] protected GunStats _gunStats;
     public GameObject BulletPrefab => _gunStats.BulletPrefab;
 
@@ -26,11 +28,16 @@ public class Gun : MonoBehaviour, IGun
     {
         _bulletCount = MaxBullet;
         EventManager.instance.Event_GunAmmoChange(_bulletCount);
+        if (reloadClip != null)
+        {
+            audioSource.PlayOneShot(reloadClip);
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Reload();
         _cooldown = CooldownTime;
         _isCoolingDown = false;
