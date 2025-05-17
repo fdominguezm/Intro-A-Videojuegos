@@ -28,6 +28,11 @@ public class EventManager : MonoBehaviour
     public event Action<int, int> OnLifeChange;
     public event Action<int> OnGunAmmoChange;
     public event Action<string> OnWeaponChange;
+    public event Action<int> OnGunShoot;
+    public event Action OnGunReload;
+    public event Action OnPlayerDamage;
+    public event Action OnZombieDamage;
+
 
     public void Event_LifeChange(int life, int maxLife)
     {
@@ -40,6 +45,24 @@ public class EventManager : MonoBehaviour
     public void Event_WeaponChange(string name)
     {
         if (OnWeaponChange != null) OnWeaponChange(name);
+    }
+
+    public void Event_OnGunShoot(int weapon)
+    {
+        if (OnGunShoot != null) OnGunShoot(weapon);
+    }
+
+    public void Event_OnGunReload()
+    {
+        if (OnGunReload != null) OnGunReload();
+    }
+    public void Event_OnPlayerDamage()
+    {
+        if (OnPlayerDamage != null) OnPlayerDamage();
+    }
+    public void Event_OnZombieDamage()
+    {
+        if (OnZombieDamage != null) OnZombieDamage();
     }
 
     #endregion
