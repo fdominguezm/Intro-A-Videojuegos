@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: f61dd1c12e87d4a27a697f46d24a8335
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7960066274368413989
+    second: Gun collection FREE version_0
+  - first:
+      213: -4727794215341459503
+    second: Gun collection FREE version_1
+  - first:
+      213: 7770715219819626602
+    second: Gun collection FREE version_2
+  - first:
+      213: 2574075210983054542
+    second: Gun collection FREE version_3
+  - first:
+      213: 5011094371146429455
+    second: Gun collection FREE version_4
+  - first:
+      213: 6056772113757652715
+    second: Gun collection FREE version_5
+  - first:
+      213: -1383899529594537090
+    second: Gun collection FREE version_6
+  - first:
+      213: -2711023110472066177
+    second: Gun collection FREE version_7
+  - first:
+      213: 1336912397792178754
+    second: Gun collection FREE version_8
+  - first:
+      213: 1643916725475091009
+    second: Gun collection FREE version_9
+  - first:
+      213: -1490379465175931095
+    second: Gun collection FREE version_10
+  - first:
+      213: 7837251896041037584
+    second: Gun collection FREE version_11
+  - first:
+      213: 3830908597158163526
+    second: Gun collection FREE version_12
+  - first:
+      213: -9190804044809183448
+    second: Gun collection FREE version_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gun collection FREE version_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3244
+        width: 1334
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 521eb403a16d77e60800000000000000
+      internalID: 7960066274368413989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_1
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 3345
+        width: 1807
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7fc67c530836eb0800000000000000
+      internalID: -4727794215341459503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_2
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2682
+        width: 1322
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a600218425027db60800000000000000
+      internalID: 7770715219819626602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_3
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 2905
+        width: 1796
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc98cf24c3f8b320800000000000000
+      internalID: 2574075210983054542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1855
+        width: 587
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f047428d7cbfa8540800000000000000
+      internalID: 5011094371146429455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_5
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1864
+        width: 569
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be64406b52afd0450800000000000000
+      internalID: 6056772113757652715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_6
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 1857
+        width: 380
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bffa5c5b66bcce0800000000000000
+      internalID: -1383899529594537090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_7
+      rect:
+        serializedVersion: 2
+        x: 2214
+        y: 1863
+        width: 357
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b107a38d2806ad0800000000000000
+      internalID: -2711023110472066177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_8
+      rect:
+        serializedVersion: 2
+        x: 2994
+        y: 1787
+        width: 219
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242f7361ebaad8210800000000000000
+      internalID: 1336912397792178754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_9
+      rect:
+        serializedVersion: 2
+        x: 3338
+        y: 1787
+        width: 206
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142244e4d8d50d610800000000000000
+      internalID: 1643916725475091009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_10
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 766
+        width: 1939
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927e6a5d5cb115be0800000000000000
+      internalID: -1490379465175931095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_11
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 746
+        width: 1108
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01f58ce631383cc60800000000000000
+      internalID: 7837251896041037584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 140
+        width: 1952
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6443a94721f1a2530800000000000000
+      internalID: 3830908597158163526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun collection FREE version_13
+      rect:
+        serializedVersion: 2
+        x: 2439
+        y: 0
+        width: 1094
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82fdcec8a64b37080800000000000000
+      internalID: -9190804044809183448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

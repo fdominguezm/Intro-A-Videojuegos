@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
     // [SerializeField] private bool _isGameOver = false;
     [SerializeField] private bool _isVictory = false;
+    [SerializeField] private int _zombieCount;
 
     private void Start()
     {
         EventManager.instance.OnGameOver += OnGameOver;
+        EventManager.instance.KilledZombie += KilledZombie;
     }
 
     private void OnGameOver(bool isVictory)
@@ -21,7 +23,6 @@ public class GameManager : MonoBehaviour
         _isVictory = isVictory;
 
         string debugMessage = isVictory ? "Victoria" : "Derrota";
-        Debug.Log(debugMessage);
 
         if (isVictory)
         {
@@ -30,6 +31,16 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("EndDefeat");
+        }
+
+    }
+
+    private void KilledZombie()
+    {
+        _zombieCount--;
+        if (_zombieCount == 0)
+        {
+            EventManager.instance.EventGameOver(true);
         }
 
     }
