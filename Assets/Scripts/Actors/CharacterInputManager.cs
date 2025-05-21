@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum WeaponIndex
+public enum WeaponIndex
 {
     pistol = 0,
     shotgun = 1,
@@ -42,7 +42,7 @@ public class CharacterInputManager : MonoBehaviour
         _walkStrategy = GetComponent<WalkStrategy>();
         _turnStrategy = GetComponent<TurnStrategy>();
 
-        QueueWeaponSwitch((int)WeaponIndex.pistol);
+        QueueWeaponSwitch(WeaponIndex.pistol);
     }
 
     private Vector2 GetInputDirection()
@@ -70,14 +70,14 @@ public class CharacterInputManager : MonoBehaviour
 
         if (Input.GetKey(_attack)) EventQueueManager.Instance.AddCommand(_attackCmd);
         if (Input.GetKeyDown(_reload)) EventQueueManager.Instance.AddCommand(_reloadCmd);
-        if (Input.GetKeyDown(_pistol)) QueueWeaponSwitch((int)WeaponIndex.pistol);
-        if (Input.GetKeyDown(_shotgun)) QueueWeaponSwitch((int)WeaponIndex.shotgun);
-        if (Input.GetKeyDown(_rifle)) QueueWeaponSwitch((int)WeaponIndex.rifle);
+        if (Input.GetKeyDown(_pistol)) QueueWeaponSwitch(WeaponIndex.pistol);
+        if (Input.GetKeyDown(_shotgun)) QueueWeaponSwitch(WeaponIndex.shotgun);
+        if (Input.GetKeyDown(_rifle)) QueueWeaponSwitch(WeaponIndex.rifle);
 
 
     }
 
-    private void QueueWeaponSwitch(int index)
+    private void QueueWeaponSwitch(WeaponIndex index)
     {
         var switchCmd = new SwitchWeaponCmd(_gunList, index, OnWeaponSwitched);
         EventQueueManager.Instance.AddCommand(switchCmd);

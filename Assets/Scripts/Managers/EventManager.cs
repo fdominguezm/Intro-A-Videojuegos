@@ -50,5 +50,21 @@ public class EventManager : MonoBehaviour
         if (OnWeaponChange != null) OnWeaponChange(name);
     }
 
+    public event Action<DamageType> OnDamage;
+    public event Action OnReload;
+    public event Action<WeaponIndex> OnShot;
+    public void Event_OnDamage(DamageType type)
+    {
+        if (OnDamage != null) OnDamage(type);
+    }
+    public void Event_OnReload()
+    {
+        if (OnReload != null) OnReload();
+    }
+    public void Event_OnShot(WeaponIndex weapon)
+    {
+        if (OnShot != null) OnShot(weapon);
+    }
+
     #endregion
 }

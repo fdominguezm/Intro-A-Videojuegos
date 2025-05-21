@@ -6,26 +6,77 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    [SerializeField] private AudioClip _victoryClip;
-    [SerializeField] private AudioClip _defeatClip;
+    // [SerializeField] private AudioClip _victoryClip;
+    // [SerializeField] private AudioClip _defeatClip;
+
+    [Header("Damage")]
+    [SerializeField] private AudioClip _characterClip;
+    [SerializeField] private AudioClip _zombieClip;
+    [SerializeField] private AudioClip _wallClip;
+
+    [Header("Weapons")]
+    [SerializeField] private AudioClip _reloadClip;
+    [SerializeField] private AudioClip _pistolClip;
+    [SerializeField] private AudioClip _shotgunClip;
+    [SerializeField] private AudioClip _rifleClip;
 
 
     public AudioSource AudioSource => GetComponent<AudioSource>();
 
     private void Start()
     {
-        EventManager.instance.OnGameOver += OnGameOver;
+        // EventManager.instance.OnGameOver += OnGameOver;
+        EventManager.instance.OnDamage += OnDamage;
+        EventManager.instance.OnReload += OnReload;
+        EventManager.instance.OnShot += OnShot;
     }
 
-    private void OnGameOver(bool isVictory)
+    // private void OnGameOver(bool isVictory)
+    // {
+    //     if (isVictory)
+    //     {
+    //         AudioSource.PlayOneShot(_victoryClip);
+    //     }
+    //     else
+    //     {
+    //         AudioSource.PlayOneShot(_defeatClip);
+    //     }
+    // }
+
+    public void OnDamage(DamageType type)
     {
-        if (isVictory)
+        switch (type)
         {
-            AudioSource.PlayOneShot(_victoryClip);
+            case DamageType.Character:
+                AudioSource.PlayOneShot(_characterClip);
+                break;
+            case DamageType.Zombie:
+                AudioSource.PlayOneShot(_zombieClip);
+                break;
+            case DamageType.Wall:
+                AudioSource.PlayOneShot(_wallClip);
+                break;
         }
-        else
+    }
+
+    public void OnShot(WeaponIndex weapon)
+    {
+        switch (weapon)
         {
-            AudioSource.PlayOneShot(_defeatClip);
+            case WeaponIndex.pistol:
+                AudioSource.PlayOneShot(_pistolClip);
+                break;
+            case WeaponIndex.shotgun:
+                AudioSource.PlayOneShot(_shotgunClip);
+                break;
+            case WeaponIndex.rifle:
+                AudioSource.PlayOneShot(_rifleClip);
+                break;
         }
+    }
+
+    public void OnReload()
+    {
+        AudioSource.PlayOneShot(_reloadClip);
     }
 }

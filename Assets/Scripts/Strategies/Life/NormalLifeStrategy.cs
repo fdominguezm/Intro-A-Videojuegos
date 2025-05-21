@@ -1,11 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Actor))]
+public enum DamageType
+{
+    Character = 0,
+    Zombie = 1,
+    Wall = 2
+}
 
+
+[RequireComponent(typeof(Actor))]
 public class NormalLifeStrategy : MonoBehaviour, IDamageable
 {
-    public AudioClip damageClip;
-    public AudioSource audioSource;
+    [SerializeField] DamageType type;
     public int CurrentLife => _currentLife;
     private bool dead;
     [SerializeField] private int _currentLife;
@@ -16,7 +22,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     {
         _currentLife -= damage;
         if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
-        if (damageClip != null) audioSource.PlayOneShot(damageClip);
+        EventManager.instance.Event_OnDamage(type);
         if (_currentLife <= 0 && !dead)
         {
             dead = true;
@@ -48,7 +54,6 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
 
     public void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         _currentLife = MaxLife;
         EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
         dead = false;

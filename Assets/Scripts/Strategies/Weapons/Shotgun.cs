@@ -25,11 +25,7 @@ public class Shotgun : Gun
 
             _bulletCount--;
             base.Attack();
-
-            if (shootClip != null)
-            {
-                audioSource.PlayOneShot(shootClip);
-            }
+            EventManager.instance.Event_OnShot(WeaponIndex.shotgun);
         }
     }
 }

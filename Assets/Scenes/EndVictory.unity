@@ -562,9 +562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1530205d584c944808b8d85ffa323e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClip: {fileID: 8300000, guid: cb2240382cbee43439dbe02893a9fa30, type: 3}
-  reloadClip: {fileID: 8300000, guid: 60a3b23e7509b4fb59b38d7cb0aaaf86, type: 3}
-  audioSource: {fileID: 567189930}
   _gunStats: {fileID: 11400000, guid: 90f5a97b12e824334ba7c5e35b15e2e6, type: 2}
   _bulletsParent: {fileID: 0}
 --- !u!212 &567189932
@@ -705,7 +702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 258455183}
         m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
@@ -1034,9 +1031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347d1348ca60a4d07b25c0de4157d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClip: {fileID: 8300000, guid: cb2240382cbee43439dbe02893a9fa30, type: 3}
-  reloadClip: {fileID: 8300000, guid: 60a3b23e7509b4fb59b38d7cb0aaaf86, type: 3}
-  audioSource: {fileID: 1222664613}
   _gunStats: {fileID: 11400000, guid: fcaf28057c99b47b5b058548c8966258, type: 2}
   _bulletsParent: {fileID: 0}
 --- !u!212 &1222664615
@@ -1177,7 +1171,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 258455183}
         m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -1370,9 +1364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d269eeed0324003b243ae1f2442313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClip: {fileID: 8300000, guid: 79e1b45172d8b40f199ef21a791c5702, type: 3}
-  reloadClip: {fileID: 8300000, guid: 60a3b23e7509b4fb59b38d7cb0aaaf86, type: 3}
-  audioSource: {fileID: 1386459592}
   _gunStats: {fileID: 11400000, guid: a6d449b7bf1c348d8aa79374691faa0c, type: 2}
   _bulletsParent: {fileID: 0}
   spreadAngle: 30

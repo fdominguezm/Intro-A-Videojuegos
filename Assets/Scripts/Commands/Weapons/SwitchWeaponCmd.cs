@@ -6,10 +6,10 @@ using UnityEngine;
 public class SwitchWeaponCmd : ICommand
 {
     private List<Gun> _gunList;
-    private int _weaponIndex;
+    private WeaponIndex _weaponIndex;
     private Action<Gun> _onWeaponSwitched;
 
-    public SwitchWeaponCmd(List<Gun> gunList, int weaponIndex, Action<Gun> onWeaponSwitched)
+    public SwitchWeaponCmd(List<Gun> gunList, WeaponIndex weaponIndex, Action<Gun> onWeaponSwitched)
     {
         _gunList = gunList;
         _weaponIndex = weaponIndex;
@@ -18,11 +18,12 @@ public class SwitchWeaponCmd : ICommand
 
     public void Execute()
     {
+
         for (int i = 0; i < _gunList.Count; i++)
         {
-            _gunList[i].gameObject.SetActive(i == _weaponIndex);
+            _gunList[i].gameObject.SetActive(i == (int)_weaponIndex);
         }
 
-        _onWeaponSwitched?.Invoke(_gunList[_weaponIndex]);
+        _onWeaponSwitched?.Invoke(_gunList[(int)_weaponIndex]);
     }
 }
