@@ -21,10 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode _moveRight = KeyCode.D;
 
     [Header("Key Bindings - Weapons")]
-    [SerializeField] private KeyCode _pistol = KeyCode.Alpha1;
-    [SerializeField] private KeyCode _uzi = KeyCode.Alpha2;
-    [SerializeField] private KeyCode _shotgun = KeyCode.Alpha3;
-
+    [SerializeField] private KeyCode _nextWeapon = KeyCode.E;
+    [SerializeField] private KeyCode _prevWeapon = KeyCode.Q;
 
     void Update()
     {
@@ -33,17 +31,13 @@ public class PlayerMovement : MonoBehaviour
         Animate(direction);
         LastMoveDirection = direction;
 
-        if (Input.GetKey(_pistol))
+        if (Input.GetKeyDown(_nextWeapon))
         {
-            weaponIndex = 0;
+            weaponIndex = (weaponIndex + 1) % 3;
         }
-        else if (Input.GetKey(_uzi))
+        else if (Input.GetKeyDown(_prevWeapon))
         {
-            weaponIndex = 1;
-        }
-        else if (Input.GetKey(_shotgun))
-        {
-            weaponIndex = 2;
+            weaponIndex = (weaponIndex + 2) % 3;
         }
         AnimateWeapon(weaponIndex);
     }
