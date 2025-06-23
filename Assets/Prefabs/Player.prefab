@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 8662394516561334375}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,5 +274,5 @@ MonoBehaviour:
   _moveDown: 115
   _moveLeft: 97
   _moveRight: 100
-  _pistol: 49
-  _uzi: 50
+  _nextWeapon: 101
+  _prevWeapon: 113
