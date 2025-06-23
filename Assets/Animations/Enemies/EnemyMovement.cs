@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public Transform target;
+
+
     public float speed = 0.5f;
     public Rigidbody2D rb;
 
@@ -17,22 +20,40 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private KeyCode _moveLeft = KeyCode.A;
     [SerializeField] private KeyCode _moveRight = KeyCode.D;
 
-    void Update()
+    void Start()
     {
-        direction = GetInputDirection();
-        transform.position += (Vector3)(direction.normalized * speed * Time.deltaTime);
-        Animate(direction);
-        LastMoveDirection = direction;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
     }
 
-    private Vector2 GetInputDirection()
+    void Update()
     {
-        Vector2 direction = Vector2.zero;
+        if (target != null)
+        {
+            Vector2 rawDirection = (target.position - transform.position).normalized;
+            Vector2 direction = GetEightDirection(rawDirection);
 
-        if (Input.GetKey(_moveUp)) direction += Vector2.up;
-        if (Input.GetKey(_moveDown)) direction += Vector2.down;
-        if (Input.GetKey(_moveLeft)) direction += Vector2.left;
-        if (Input.GetKey(_moveRight)) direction += Vector2.right;
+            transform.position += (Vector3)(direction * speed * Time.deltaTime);
+            Animate(direction);
+            LastMoveDirection = direction;
+        }
+    }
+
+    private Vector2 GetEightDirection(Vector2 input)
+    {
+        if (input == Vector2.zero) return Vector2.zero;
+
+        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+
+        // Redondeamos el ángulo a múltiplos de 45 grados
+        float roundedAngle = Mathf.Round(angle / 45f) * 45f;
+
+        // Convertimos el ángulo redondeado a vector
+        float radians = roundedAngle * Mathf.Deg2Rad;
+        Vector2 direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
 
         return direction;
     }
