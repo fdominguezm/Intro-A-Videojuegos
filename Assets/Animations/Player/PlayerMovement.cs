@@ -8,11 +8,19 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     private Vector2 LastMoveDirection;
 
+    private int weaponIndex = 0;
+
     [Header("Key Bindings - Movements")]
     [SerializeField] private KeyCode _moveUp = KeyCode.W;
     [SerializeField] private KeyCode _moveDown = KeyCode.S;
     [SerializeField] private KeyCode _moveLeft = KeyCode.A;
     [SerializeField] private KeyCode _moveRight = KeyCode.D;
+
+    [Header("Key Bindings - Weapons")]
+    [SerializeField] private KeyCode _pistol = KeyCode.Alpha1;
+    [SerializeField] private KeyCode _uzi = KeyCode.Alpha2;
+
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,6 +32,20 @@ public class PlayerMovement : MonoBehaviour
         transform.position += (Vector3)(direction.normalized * speed * Time.deltaTime);
         Animate(direction);
         LastMoveDirection = direction;
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKey(_pistol))
+        {
+            weaponIndex = 0;
+        }
+        else if (Input.GetKey(_uzi))
+        {
+            weaponIndex = 1;
+        }
+        Debug.Log(weaponIndex);
+        AnimateWeapon(weaponIndex);
     }
 
     private Vector2 GetInputDirection()
@@ -50,5 +72,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("LastMoveX", LastMoveDirection.x);
             anim.SetFloat("LastMoveY", LastMoveDirection.y);
         }
+    }
+
+    private void AnimateWeapon(int index)
+    {
+        anim.SetInteger("WeaponIdx", index);
     }
 }
