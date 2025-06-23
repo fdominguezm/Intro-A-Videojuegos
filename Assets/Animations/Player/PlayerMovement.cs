@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Key Bindings - Weapons")]
     [SerializeField] private KeyCode _pistol = KeyCode.Alpha1;
     [SerializeField] private KeyCode _uzi = KeyCode.Alpha2;
+    [SerializeField] private KeyCode _shotgun = KeyCode.Alpha3;
 
 
     void Update()
@@ -31,10 +32,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position += (Vector3)(direction.normalized * speed * Time.deltaTime);
         Animate(direction);
         LastMoveDirection = direction;
-    }
 
-    void FixedUpdate()
-    {
         if (Input.GetKey(_pistol))
         {
             weaponIndex = 0;
@@ -42,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(_uzi))
         {
             weaponIndex = 1;
+        }
+        else if (Input.GetKey(_shotgun))
+        {
+            weaponIndex = 2;
         }
         AnimateWeapon(weaponIndex);
     }
