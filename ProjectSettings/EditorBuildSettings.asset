@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/EndVictory.unity
     guid: e8087ee0d7bfe424a9e6b7cce38392f6
   - enabled: 1
+    path: Assets/Scenes/Instrucciones.unity
+    guid: e2e1512c743ec4ce4bbf1d41f81db79b
+  - enabled: 1
     path: Assets/Scenes/EndDefeat.unity
     guid: b806027a7eaea45af8289e37d16dfef5
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: bb7cb3466c670497cbfe28ebb854dda1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
