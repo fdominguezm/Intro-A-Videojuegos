@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      old-paper-texture-folded-trace-o8krxfwv77qj5a5r_0: -592716492866570843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

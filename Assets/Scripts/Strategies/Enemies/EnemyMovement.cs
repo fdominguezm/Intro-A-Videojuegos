@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Actor))]
 public class EnemyMovement : MonoBehaviour
@@ -11,12 +12,17 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Movement Animators")]
     public Animator moveAnimator;
+    private NavMeshAgent agent;
+
 
     private Vector2 direction;
     private Vector2 LastMoveDirection;
 
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -28,10 +34,12 @@ public class EnemyMovement : MonoBehaviour
     {
         if (target != null)
         {
-            Vector2 rawDirection = (target.position - transform.position).normalized;
-            Vector2 direction = GetEightDirection(rawDirection);
 
-            transform.position += (Vector3)(direction * Speed * Time.deltaTime);
+            agent.SetDestination(target.position);
+            // Vector2 rawDirection = (target.position - transform.position).normalized;
+            Vector2 direction = GetEightDirection(agent.velocity);
+
+            // transform.position += (Vector3)(direction * Speed * Time.deltaTime);
             Animate(direction);
             LastMoveDirection = direction;
         }
