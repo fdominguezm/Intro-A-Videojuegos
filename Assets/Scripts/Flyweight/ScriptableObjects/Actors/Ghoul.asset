@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ghoul
   m_EditorClassIdentifier: 
   _actorStatsValues:
-    MaxLife: 100
-    Speed: 2
+    MaxLife: 20
+    Speed: 4
     Turn: 0
-    KnockbackForce: 10
-    Damage: 10
+    KnockbackForce: 5
+    Damage: 5
