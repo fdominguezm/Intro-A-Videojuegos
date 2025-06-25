@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  _currentLife: 50
+  _currentLife: 0
 --- !u!195 &816401903971914025
 NavMeshAgent:
   m_ObjectHideFlags: 0
