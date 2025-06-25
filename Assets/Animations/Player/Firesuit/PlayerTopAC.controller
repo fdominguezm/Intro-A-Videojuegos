@@ -137,10 +137,18 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -6639878286373795162}
+    m_Threshold: 3
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: MoveX
+    m_Mirror: 0
   m_BlendParameter: Index
   m_BlendParameterY: Blend
   m_MinThreshold: 0
-  m_MaxThreshold: 2
+  m_MaxThreshold: 3
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
@@ -372,6 +380,21 @@ BlendTree:
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 1
+--- !u!206 &7010476391384254798
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs: []
+  m_BlendParameter: Index
+  m_BlendParameterY: Blend
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
 --- !u!1107 &8369263844293577216
 AnimatorStateMachine:
   serializedVersion: 6

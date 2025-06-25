@@ -490,6 +490,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1556669455570828876, guid: 92d7f9fee98a4478abf9f436a63a914e, type: 3}
+      propertyPath: _gunList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556669455570828876, guid: 92d7f9fee98a4478abf9f436a63a914e, type: 3}
+      propertyPath: '_gunList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1978549025}
     - target: {fileID: 1699680248309196410, guid: 92d7f9fee98a4478abf9f436a63a914e, type: 3}
       propertyPath: _bulletsParent
       value: 
@@ -13003,6 +13011,7 @@ MonoBehaviour:
   - {fileID: 5011094371146429455, guid: f61dd1c12e87d4a27a697f46d24a8335, type: 3}
   - {fileID: -4727794215341459503, guid: f61dd1c12e87d4a27a697f46d24a8335, type: 3}
   - {fileID: 7960066274368413989, guid: f61dd1c12e87d4a27a697f46d24a8335, type: 3}
+  - {fileID: 7837251896041037584, guid: f61dd1c12e87d4a27a697f46d24a8335, type: 3}
   _activeGun: {fileID: 650236721}
   _lifeBars:
   - {fileID: 21300000, guid: 63b3fd5a3645946a0bc0a1240fa64e20, type: 3}
@@ -26611,6 +26620,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4250f4564573547f68a14a5997aac8db, type: 3}
+--- !u!114 &1978549025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6443768675102100120, guid: 92d7f9fee98a4478abf9f436a63a914e, type: 3}
+  m_PrefabInstance: {fileID: 571007441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b99a58a9d3bf48bf8ffccad5357fa7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2034647287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4858920218013348220, guid: 92d7f9fee98a4478abf9f436a63a914e, type: 3}

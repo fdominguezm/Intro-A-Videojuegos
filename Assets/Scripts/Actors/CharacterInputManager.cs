@@ -7,6 +7,7 @@ public enum WeaponIndex
     pistol = 0,
     rifle = 1,
     shotgun = 2,
+    thunderifle = 3
 }
 
 public class CharacterInputManager : MonoBehaviour
@@ -34,6 +35,8 @@ public class CharacterInputManager : MonoBehaviour
     [SerializeField] private KeyCode _pistol = KeyCode.Alpha1;
     [SerializeField] private KeyCode _shotgun = KeyCode.Alpha2;
     [SerializeField] private KeyCode _rifle = KeyCode.Alpha3;
+    [SerializeField] private KeyCode _thunderifle = KeyCode.Alpha4;
+
     [SerializeField] private KeyCode _attack = KeyCode.Space;
     [SerializeField] private KeyCode _reload = KeyCode.R;
 
@@ -83,6 +86,8 @@ public class CharacterInputManager : MonoBehaviour
         if (Input.GetKeyDown(_pistol)) QueueWeaponSwitch(WeaponIndex.pistol);
         if (Input.GetKeyDown(_shotgun)) QueueWeaponSwitch(WeaponIndex.shotgun);
         if (Input.GetKeyDown(_rifle)) QueueWeaponSwitch(WeaponIndex.rifle);
+        if (Input.GetKeyDown(_thunderifle)) QueueWeaponSwitch(WeaponIndex.thunderifle);
+
 
 
     }

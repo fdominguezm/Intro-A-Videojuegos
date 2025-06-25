@@ -62,7 +62,9 @@ public class UIManager : MonoBehaviour
             case "Rifle":
                 _activeGun.sprite = _guns[2];
                 break;
-
+            case "Thunderifle":
+                _activeGun.sprite = _guns[3];
+                break;
         }
 
     }

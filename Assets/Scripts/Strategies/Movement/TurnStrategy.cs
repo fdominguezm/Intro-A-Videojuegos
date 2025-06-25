@@ -9,6 +9,8 @@ public class TurnStrategy : MonoBehaviour, IRotatable
         allChildRenderers.Add(transform.Find("Pistol"));
         allChildRenderers.Add(transform.Find("Shotgun"));
         allChildRenderers.Add(transform.Find("Rifle"));
+        allChildRenderers.Add(transform.Find("Thunderifle"));
+
     }
 
     public void FaceDirection(Vector2 direction)
