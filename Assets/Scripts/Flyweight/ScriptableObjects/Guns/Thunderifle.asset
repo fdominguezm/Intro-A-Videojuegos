@@ -15,6 +15,6 @@ MonoBehaviour:
   _GunStatsValues:
     BulletPrefab: {fileID: 0}
     Damage: 100
-    MaxBullet: 8
+    MaxBullet: 2
     CooldownTime: 2
     BulletsPerShot: 1

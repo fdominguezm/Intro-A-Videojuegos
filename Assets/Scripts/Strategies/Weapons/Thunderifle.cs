@@ -8,12 +8,25 @@ public class Thunderifle : Gun
     [SerializeField] private float _range = 30f;
     [SerializeField] private float _pushForce = 0.5f;
 
-    [SerializeField] private LayerMask _raycastMask; 
+    [SerializeField] private LayerMask _raycastMask;
 
 
     private int _pellets => _gunStats.BulletsPerShot;
 
     private Collider2D _ownCollider;
+
+    [SerializeField] private LineRenderer _lineRenderer;
+
+    IEnumerator ShowRay(Vector2 origin, Vector2 hitPoint)
+    {
+        _lineRenderer.enabled = true;
+        _lineRenderer.SetPosition(0, origin);
+        _lineRenderer.SetPosition(1, hitPoint);
+
+        yield return new WaitForSeconds(0.05f);
+
+        _lineRenderer.enabled = false;
+    }
 
     private void Start()
     {
@@ -52,8 +65,7 @@ public class Thunderifle : Gun
         //     Debug.DrawRay(origin, direction * _range, Color.cyan, 1f);
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, _range);
-        // RaycastHit2D hit = Physics2D.Raycast(origin, direction, _range, _raycastMask);
-
+        StartCoroutine(ShowRay(origin, hit.point));
 
         if (hit.collider != null)
         {
