@@ -5,8 +5,8 @@ using UnityEngine;
 public enum WeaponIndex
 {
     pistol = 0,
-    shotgun = 1,
-    rifle = 2
+    rifle = 1,
+    shotgun = 2,
 }
 
 public class CharacterInputManager : MonoBehaviour
@@ -16,6 +16,13 @@ public class CharacterInputManager : MonoBehaviour
 
     [SerializeField] private List<Gun> _gunList;
     [SerializeField] private Gun _gun;
+
+    [Header("Child Animators")]
+    public Animator bottomAnimator;
+    public Animator topAnimator;
+
+    private Vector2 direction;
+    private Vector2 LastMoveDirection;
 
     [Header("Key Bindings - Movements")]
     [SerializeField] private KeyCode _moveUp = KeyCode.W;
@@ -61,11 +68,14 @@ public class CharacterInputManager : MonoBehaviour
     {
         if (!_isKnockedBack)
         {
-            Vector2 direction = GetInputDirection();
-            if (direction != Vector2.zero)
+            Vector2 auxDirection = GetInputDirection();
+            if (auxDirection != Vector2.zero)
             {
-                EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, direction));
+                EventQueueManager.Instance.AddCommand(new MovementCommand(_walkStrategy, _turnStrategy, auxDirection));
             }
+            direction = auxDirection;
+            Animate(direction);
+            LastMoveDirection = direction;
         }
 
         if (Input.GetKey(_attack)) EventQueueManager.Instance.AddCommand(_attackCmd);
@@ -81,6 +91,7 @@ public class CharacterInputManager : MonoBehaviour
     {
         var switchCmd = new SwitchWeaponCmd(_gunList, index, OnWeaponSwitched);
         EventQueueManager.Instance.AddCommand(switchCmd);
+        AnimateWeapon((int)index);
     }
 
     private void OnWeaponSwitched(Gun gun)
@@ -95,6 +106,25 @@ public class CharacterInputManager : MonoBehaviour
     public void SetKnockbackState(bool value)
     {
         _isKnockedBack = value;
+    }
+
+    private void Animate(Vector2 direction)
+    {
+        bottomAnimator.SetBool("isRunning", direction != Vector2.zero);
+        bottomAnimator.SetFloat("MoveX", direction.x);
+        bottomAnimator.SetFloat("MoveY", direction.y);
+        if (direction != Vector2.zero)
+        {
+            topAnimator.SetFloat("MoveX", direction.x);
+            topAnimator.SetFloat("MoveY", direction.y);
+            bottomAnimator.SetFloat("LastMoveX", LastMoveDirection.x);
+            bottomAnimator.SetFloat("LastMoveY", LastMoveDirection.y);
+        }
+    }
+
+    private void AnimateWeapon(int index)
+    {
+        topAnimator.SetFloat("Index", index);
     }
 
 }

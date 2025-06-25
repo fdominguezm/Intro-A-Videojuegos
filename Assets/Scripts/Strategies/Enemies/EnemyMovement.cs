@@ -1,24 +1,19 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Actor))]
 public class EnemyMovement : MonoBehaviour
 {
     public Transform target;
 
-
-    public float speed = 0.5f;
-    public Rigidbody2D rb;
+    public float Speed => GetComponent<Actor>().ActorStats.Speed;
+    public int Damage => GetComponent<Actor>().ActorStats.Damage;
+    private float KnockbackForce => GetComponent<Actor>().ActorStats.KnockbackForce;
 
     [Header("Movement Animators")]
     public Animator moveAnimator;
 
     private Vector2 direction;
     private Vector2 LastMoveDirection;
-
-    [Header("Key Bindings - Movements")]
-    [SerializeField] private KeyCode _moveUp = KeyCode.W;
-    [SerializeField] private KeyCode _moveDown = KeyCode.S;
-    [SerializeField] private KeyCode _moveLeft = KeyCode.A;
-    [SerializeField] private KeyCode _moveRight = KeyCode.D;
 
     void Start()
     {
@@ -36,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
             Vector2 rawDirection = (target.position - transform.position).normalized;
             Vector2 direction = GetEightDirection(rawDirection);
 
-            transform.position += (Vector3)(direction * speed * Time.deltaTime);
+            transform.position += (Vector3)(direction * Speed * Time.deltaTime);
             Animate(direction);
             LastMoveDirection = direction;
         }
@@ -67,6 +62,26 @@ public class EnemyMovement : MonoBehaviour
         {
             moveAnimator.SetFloat("LastMoveX", LastMoveDirection.x);
             moveAnimator.SetFloat("LastMoveY", LastMoveDirection.y);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            CharacterInputManager inputManager = collision.gameObject.GetComponent<CharacterInputManager>();
+
+            if (damageable != null)
+                EventQueueManager.Instance.AddCommand(new ApplyDamageCmd(damageable, Damage));
+
+            if (rb != null && inputManager != null)
+            {
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                ICommand knockbackCmd = new KnockbackCmd(rb, knockbackDir * KnockbackForce, 0.2f, inputManager);
+                EventQueueManager.Instance.AddCommand(knockbackCmd);
+            }
         }
     }
 }
