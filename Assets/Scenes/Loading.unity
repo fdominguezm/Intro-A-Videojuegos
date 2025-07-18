@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingTime: 3
-  sceneToLoad: character
+  sceneToLoad: previewScene1
 --- !u!4 &201689098
 Transform:
   m_ObjectHideFlags: 0
