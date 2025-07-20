@@ -67,4 +67,19 @@ public class EventManager : MonoBehaviour
     }
 
     #endregion
+
+    #region BOSS_UI
+    public event Action<bool> OnBurning;
+    public event Action<int, int> OnBossLifeChange;
+
+    public void EventBurning(bool isBurning)
+    {
+        if (OnBurning != null) OnBurning(isBurning);
+    }
+    public void EventBossLifeChange(int life, int maxLife)
+    {
+        if (OnBossLifeChange != null) OnBossLifeChange(life, maxLife);
+    }
+
+    #endregion
 }

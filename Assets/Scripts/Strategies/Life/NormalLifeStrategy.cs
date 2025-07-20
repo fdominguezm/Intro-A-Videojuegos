@@ -22,6 +22,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     {
         _currentLife -= damage;
         if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
+        if (gameObject.name.Equals("Boss")) EventManager.instance.EventBossLifeChange(CurrentLife, MaxLife);
         EventManager.instance.Event_OnDamage(type);
         if (_currentLife <= 0 && !dead)
         {
@@ -46,6 +47,10 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
         }
         else if (gameObject.tag.Equals("Enemy"))
         {
+            if (gameObject.name.Equals("Boss"))
+            {
+                EventManager.instance.EventGameOver(true);
+            }
             EventManager.instance.EventZombieKilled();
         }
         Destroy(gameObject);

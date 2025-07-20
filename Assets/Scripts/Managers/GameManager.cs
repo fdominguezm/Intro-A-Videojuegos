@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
         if (isVictory)
         {
-            SceneManager.LoadScene("EndVictory");
+            SceneManager.LoadScene("Boss");
         }
         else
         {
