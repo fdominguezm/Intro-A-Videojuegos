@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     [Header("LIFE")]
 
     [SerializeField] private List<Sprite> _lifeBars;
-
     [SerializeField] private Image _activeLifebar;
 
     private int _lifeBarsSize;

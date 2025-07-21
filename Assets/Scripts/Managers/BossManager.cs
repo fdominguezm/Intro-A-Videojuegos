@@ -3,11 +3,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
 
 public class BossManager : MonoBehaviour
 {
     [SerializeField] private Image _fire;
-    [SerializeField] private TMP_Text _bossLife;
+    [SerializeField] private List<Sprite> _allBossLifeBars;
+    [SerializeField] private Image _activeBossLifeBar;
+
+    private int _allBossLifeBarsSize;
+
 
     private void Start()
     {
@@ -15,6 +21,7 @@ public class BossManager : MonoBehaviour
         EventManager.instance.OnBurning += OnBurning;
         EventManager.instance.OnBossLifeChange += OnBossLifeChange;
         _fire.gameObject.SetActive(false);
+        _allBossLifeBarsSize = _allBossLifeBars.Count;
     }
     private void OnGameOver(bool isVictory)
     {
@@ -38,7 +45,11 @@ public class BossManager : MonoBehaviour
         {
             life = 0;
         }
-        _bossLife.text = $"BOSS: {life}/{maxLife}";
+
+        int index = Mathf.CeilToInt(((float)life / maxLife) * (_allBossLifeBarsSize - 1));
+        index = Mathf.Clamp(index, 0, _allBossLifeBarsSize - 1);
+        _activeBossLifeBar.sprite = _allBossLifeBars[index];
+        
     }
 
 }
