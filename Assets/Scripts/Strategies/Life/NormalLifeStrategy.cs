@@ -60,7 +60,7 @@ public class NormalLifeStrategy : MonoBehaviour, IDamageable
     public void Start()
     {
         _currentLife = MaxLife;
-        EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
+        if (gameObject.tag.Equals("Player")) EventManager.instance.Event_LifeChange(CurrentLife, MaxLife);
         dead = false;
     }
 }

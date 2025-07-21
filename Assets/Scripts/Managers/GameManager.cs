@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
         if (isVictory)
         {
-            SceneManager.LoadScene("Boss");
+            SceneManager.LoadScene("ThirdPreviewScene");
         }
         else
         {

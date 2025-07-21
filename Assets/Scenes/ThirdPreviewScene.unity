@@ -282,7 +282,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1234710856}
-        m_TargetAssemblyTypeName: SecondPreview, Assembly-CSharp
+        m_TargetAssemblyTypeName: ThirdPreview, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
@@ -12881,7 +12881,7 @@ GameObject:
   - component: {fileID: 1234710855}
   - component: {fileID: 1234710856}
   m_Layer: 0
-  m_Name: SecondPreviewManager
+  m_Name: ThirdPreviewManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12923,7 +12923,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234710852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8adaaddf0d2243dfbd1960d794ad2f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 173e71c1a5ab049f9a24dd164047f065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1321179627
@@ -25804,9 +25804,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Al investigar, la frecuencia de los ruidos aumentaban y se acercaban a
-    el. Se dio cuenta de que no estaba solo. Vio que caian unas cosas raras del cielo.
-    Lo unico que quedaba por hacer era armarse y esperar lo mejor...
+  m_text: Parecia que todo estaba terminado, pero de repente una luz se empezo a
+    gestar. Un calor infernal invadio toda la granja. FUEGO!! pero el fuego se movia,
+    ahi es cuando se dio cuenta que lo peor estaba por venir...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
